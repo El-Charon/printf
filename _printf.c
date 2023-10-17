@@ -19,7 +19,7 @@ int _printf(const char *format, ...)
 		if (*format == '%')
 		{
 			format++;
-			toshow = selector(format, args, toshow);
+			toshow = switcher(format, args, toshow);
 			format++;
 		}
 		else
