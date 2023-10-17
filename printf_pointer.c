@@ -1,5 +1,7 @@
 #include "main.h"
 
+#define MAX_HEX_DIGITS 16
+
 /**
  * printf_pointer - prints a binary number
  * @args: numberof arguements

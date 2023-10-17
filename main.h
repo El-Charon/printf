@@ -7,9 +7,6 @@
 #include <limits.h>
 #include <stdlib.h>
 
-
-#define MAX_HEX_DIGITS 16
-
 int _putchar(char character);
 int printf_char(va_list args, int toshow);
 int printf_string(va_list args, int toshow);
