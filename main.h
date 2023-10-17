@@ -11,7 +11,7 @@ int _putchar(char character);
 int printf_char(va_list args, int toshow);
 int printf_string(va_list args, int toshow);
 int printf_integer(va_list args, int toshow);
-int selector(const char *format, va_list args, int toshow);
+int switcher(const char *format, va_list args, int toshow);
 int printf_binary(unsigned int num, int toshow);
 int _printf(const char *format, ...);
 int _x(unsigned int num, int toshow, int uppercase);
