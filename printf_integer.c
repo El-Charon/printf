@@ -3,11 +3,11 @@
 /**
  * printf_integer - prints intiger number
  * @args: number arguements
- * @toshow: the printed characters
+ * @printed: the printed characters
  * Return: printed charcaters
  */
 
-int printf_integer(va_list args, int toshow)
+int printf_integer(va_list args, int printed)
 {
 	int num = va_arg(args, int);
 	int digits = 0;
@@ -16,7 +16,7 @@ int printf_integer(va_list args, int toshow)
 
 	if (num < 0)
 	{
-		toshow += _putchar('-');
+		printed += _putchar('-');
 		num = -num;
 
 		temp = num;
@@ -37,9 +37,9 @@ int printf_integer(va_list args, int toshow)
 			pow10 *= 10;
 		}
 		digit = num / pow10;
-		toshow += _putchar(digit + '0');
+		printed += _putchar(digit + '0');
 		num -= digit * pow10;
 		digits--;
 	}
-	return (toshow);
+	return (printed);
 }

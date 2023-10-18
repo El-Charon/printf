@@ -3,11 +3,11 @@
 /**
  * printf_unsigned - prints a binary number
  * @num: number of arguements
- * @toshow: the printed characters
+ * @printed: the printed characters
  * Return: printed charcaters
  */
 
-int printf_unsigned(unsigned int num, int toshow)
+int printf_unsigned(unsigned int num, int printed)
 {
 	int digits = 0;
 	unsigned int temp = num;
@@ -20,7 +20,7 @@ int printf_unsigned(unsigned int num, int toshow)
 	if (num == 0)
 	{
 		_putchar('0');
-		toshow++;
+		printed++;
 	}
 	else
 	{
@@ -36,8 +36,8 @@ int printf_unsigned(unsigned int num, int toshow)
 		for (i = digits - 1; i >= 0; i--)
 		{
 			_putchar(unsigned_str[i]);
-			toshow++;
+			printed++;
 		}
 	}
-	return (toshow);
+	return (printed);
 }
