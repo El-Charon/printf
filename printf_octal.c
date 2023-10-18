@@ -3,11 +3,11 @@
 /**
  * printf_octal - prints a binary number
  * @num: number of arguements
- * @printed: the printed characters
+ * @toshow: the printed characters
  * Return: printed charcaters
  */
 
-int printf_octal(unsigned int num, int printed)
+int printf_octal(unsigned int num, int toshow)
 {
 	int oct[100], i = 0, j;
 
@@ -23,15 +23,15 @@ int printf_octal(unsigned int num, int printed)
 	if (i == 0)
 	{
 		_putchar('0');
-		printed++;
+		toshow++;
 	}
 	else
 	{
 		for (j = i - 1; j >= 0; j--)
 		{
 			_putchar(oct[j]);
-			printed++;
+			toshow++;
 		}
 	}
-	return (printed);
+	return (toshow);
 }

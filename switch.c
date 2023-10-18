@@ -3,51 +3,51 @@
 /**
  * selector - selects the appropriate specifiers
  * @args: number of arguements
- * @printed: the printed characters
+ * @toshow: the printed characters
  * @format: the format specifier
  * Return: printed charcaters
  */
 
-int selector(const char *format, va_list args, int printed)
+int switcher(const char *format, va_list args, int toshow)
 {
 	switch (*format)
 	{
 		case 'd':
 		case 'i':
-			printed = printf_integer(args, printed);
+			toshow = printf_integer(args, toshow);
 			break;
 		case 'c':
 			_putchar(va_arg(args, int));
-			printed++;
+			toshow++;
 			break;
 		case 's':
-			printed = printf_string(args, printed);
+			toshow = printf_string(args, toshow);
 			break;
 		case '%':
 			_putchar('%');
-			printed++;
+			toshow++;
 			break;
 		case 'b':
-			printed = printf_binary(va_arg(args, unsigned int), printed);
+			toshow = printf_binary(va_arg(args, unsigned int), toshow);
 			break;
 		case 'x':
 		case 'X':
-			printed = _x(va_arg(args, unsigned int), printed, (*format == 'X') ? 1 : 0);
+			toshow = _x(va_arg(args, unsigned int), toshow, (*format == 'X') ? 1 : 0);
 			break;
 		case 'o':
-			printed = printf_octal(va_arg(args, unsigned int), printed);
+			toshow = printf_octal(va_arg(args, unsigned int), toshow);
 			break;
 		case 'u':
-			printed = printf_unsigned(va_arg(args, unsigned int), printed);
+			toshow = printf_unsigned(va_arg(args, unsigned int), toshow);
 			break;
 		case 'r':
-			printed = printf_reverse(args, printed);
+			toshow = printf_reverse(args, toshow);
 			break;
 		case 'p':
-			printed = printf_pointer(args, printed);
+			toshow = printf_pointer(args, toshow);
 			break;
 		default:
 			break;
 	}
-	return (printed);
+	return (toshow);
 }

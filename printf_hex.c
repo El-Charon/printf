@@ -3,12 +3,12 @@
 /**
  * _x - prints a binary number
  * @num: number arguements
- * @printed: the printed characters
+ * @toshow: the printed characters
  * @uppercase: the uppercase equivalent
  * Return: printed charcaters
  */
 
-int _x(unsigned int num, int printed, int uppercase)
+int _x(unsigned int num, int toshow, int uppercase)
 {
 	int hex[100], i = 0, j;
 
@@ -37,15 +37,15 @@ int _x(unsigned int num, int printed, int uppercase)
 	if (i == 0)
 	{
 		_putchar('0');
-		printed++;
+		toshow++;
 	}
 	else
 	{
 		for (j = i - 1; j >= 0; j--)
 		{
 			_putchar(hex[j]);
-			printed++;
+			toshow++;
 		}
 	}
-	return (printed);
+	return (toshow);
 }

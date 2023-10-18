@@ -8,7 +8,7 @@
 
 int _printf(const char *format, ...)
 {
-	int printed = 0;
+	int toshow = 0;
 
 	va_list args;
 
@@ -19,16 +19,16 @@ int _printf(const char *format, ...)
 		if (*format == '%')
 		{
 			format++;
-			printed = selector(format, args, printed);
+			toshow = switcher(format, args, toshow);
 			format++;
 		}
 		else
 		{
 			_putchar(*format);
-			printed++;
+			toshow++;
 			format++;
 		}
 	}
 	va_end(args);
-	return (printed);
+	return (toshow);
 }

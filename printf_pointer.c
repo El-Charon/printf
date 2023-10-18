@@ -9,7 +9,7 @@
  * Return: printed charcaters
  */
 
-int printf_pointer(va_list args, int printed)
+int printf_pointer(va_list args, int toshow)
 {
 	void *ptr = va_arg(args, void*);
 	unsigned long num = (unsigned long) ptr;
@@ -25,12 +25,12 @@ int printf_pointer(va_list args, int printed)
 		temp /= 16;
 	}
 
-	printed += _putchar('0');
-	printed += _putchar('x');
+	toshow += _putchar('0');
+	toshow += _putchar('x');
 
 	if (num == 0)
 	{
-		printed += _putchar('0');
+		toshow += _putchar('0');
 	}
 	else
 	{
@@ -43,8 +43,8 @@ int printf_pointer(va_list args, int printed)
 		}
 		for (i = 0; i < digits; i++)
 		{
-			printed += _putchar(hex[i]);
+			toshow += _putchar(hex[i]);
 		}
 	}
-	return (printed);
+	return (toshow);
 }
