@@ -7,6 +7,7 @@
 #include <limits.h>
 #include <stdlib.h>
 
+int _printf(const char *format, ...);
 int printf_char(va_list args, int toshow);
 int printf_string(va_list args, int toshow);
 int printf_integer(va_list args, int toshow);
@@ -18,6 +19,5 @@ int printf_unsigned(unsigned int num, int toshow);
 int printf_reverse(va_list args, int toshow);
 int printf_pointer(va_list args, int toshow);
 int _putchar(char character);
-int _printf(const char *format, ...);
 
 #endif
