@@ -7,12 +7,12 @@
  */
 
 int print_rot13(va_list list) {
+        int i = 0;
     char *str = va_arg(list, char *);
     if (str == NULL) {
         return -1;
     }
 
-    int i = 0;
     while (str[i] != '\0') {
         char c = str[i];
         if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z')) {
