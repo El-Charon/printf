@@ -8,12 +8,12 @@
 
 int print_string(va_list list)
 {
+        int i = 0;
     char *str = va_arg(list, char *);
     if (str == NULL) {
         str = "(null)";
     }
 
-    int i = 0;
     while (str[i] != '\0') {
         _putchar(str[i]);
         i++;
