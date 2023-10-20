@@ -38,7 +38,7 @@ int print_octal(va_list list)
 
     octal_rep[len] = '\0';
 
-    rev_str = reverseString(octal_rep);
+    rev_str = rev_string(octal_rep);
     if (rev_str == NULL) {
         free(octal_rep);
         return -1;

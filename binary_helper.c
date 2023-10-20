@@ -7,75 +7,99 @@
  * Return: An integer representing the length of a number
  */
 
-unsigned int base_len(unsigned int num, int base) {
-    unsigned int length = 0;
-    
-    if (num == 0) {
-        return 1; // Special case: 0 has a length of 1 in any base
-    }
-    
-    while (num > 0) {
-        num /= base;
-        length++;
-    }
-    
-    return length;
+unsigned int base_len(unsigned int num, int base)
+{
+	unsigned int i;
+
+	for (i = 0; num > 0; i++)
+	{
+		num = num / base;
+	}
+	return (i);
 }
 
+
 /**
- * reverseString - Reverses a string in place
- * @str: String to reverse
+ * rev_string - reverses a string in place
+ *
+ * @s: string to reverse
+ * Return: A pointer to a character
  */
-void reverseString(char *str) {
-    int len = strlen(str);
-    
-    for (int i = 0; i < len / 2; i++) {
-        char temp = str[i];
-        str[i] = str[len - 1 - i];
-        str[len - 1 - i] = temp;
-    }
+
+char *rev_string(char *s)
+{
+	int len;
+	int head;
+	char tmp;
+	char *dest;
+
+	for (len = 0; s[len] != '\0'; len++)
+	{}
+
+	dest = malloc(sizeof(char) * len + 1);
+	if (dest == NULL)
+		return (NULL);
+
+	_memcpy(dest, s, len);
+	for (head = 0; head < len; head++, len--)
+	{
+		tmp = dest[len - 1];
+		dest[len - 1] = dest[head];
+		dest[head] = tmp;
+	}
+	return (dest);
 }
 
+
 /**
- * write_base - Sends characters to be written on standard output
+ * write_base - sends characters to be written on standard output
  * @str: String to parse
  */
-void write_base(char *str) {
-    for (int i = 0; str[i] != '\0'; i++) {
-        putchar(str[i]);
-    }
+
+void write_base(char *str)
+{
+	int i;
+
+	for (i = 0; str[i] != '\0'; i++)
+		_putchar(str[i]);
 }
 
+
 /**
- * _memcpy - Copy memory area
+ * _memcpy - copy memory area
  * @dest: Destination for copying
  * @src: Source to copy from
  * @n: The number of bytes to copy
  * Return: The _memcpy() function returns a pointer to dest.
  */
-char *_memcpy(char *dest, char *src, unsigned int n) {
-    for (unsigned int i = 0; i < n; i++) {
-        dest[i] = src[i];
-    }
-    return dest;
+
+char *_memcpy(char *dest, char *src, unsigned int n)
+{
+	unsigned int i;
+
+	for (i = 0; i < n; i++)
+		dest[i] = src[i];
+	dest[i] = '\0';
+	return (dest);
 }
+
 
 /**
  * hex_check - Checks which hex function is calling it
- * @num: Number to convert into a letter
+ * @num: Number to convert into letter
  * @x: Tells which hex function is calling it
- * Return: ASCII value for a letter
+ * Return: Ascii value for a letter
  */
-int hex_check(int num, char x) {
-    char *hex_lower = "abcdef";
-    char *hex_upper = "ABCDEF";
-    
-    if (x == 'x' && num >= 10 && num <= 15) {
-        return hex_lower[num - 10];
-    } else if (x == 'X' && num >= 10 && num <= 15) {
-        return hex_upper[num - 10];
-    }
-    
-    // If the character is not a valid hex digit, you should handle the error or return an appropriate value.
-    return 0; // This is a placeholder; you may want to handle errors differently.
+
+int hex_check(int num, char x)
+{
+	char *hex = "abcdef";
+	char *Hex = "ABCDEF";
+
+	num = num - 10;
+	if (x == 'x')
+		return (hex[num]);
+	else
+		return (Hex[num]);
+	return (0);
 }
