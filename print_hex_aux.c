@@ -8,24 +8,24 @@
 
 int print_hex_aux(unsigned long int num)
 {
+    int counter = 0;
+    unsigned long int temp = num;
+    char *hexDigits = "0123456789ABCDEF";
+    char *hexArray = (char *)malloc(counter * sizeof(char));
+
    if (num == 0) {
         putchar('0');
+        free(hexArray);
         return 1;
     }
 
-    int counter = 0;
-    unsigned long int temp = num;
+    if (hexArray == NULL) {
+        return -1;
+    }
 
     while (temp > 0) {
         temp /= 16;
         counter++;
-    }
-
-    char *hexDigits = "0123456789ABCDEF";
-
-    char *hexArray = (char *)malloc(counter * sizeof(char));
-    if (hexArray == NULL) {
-        return -1;
     }
 
     temp = num;

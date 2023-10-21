@@ -9,18 +9,18 @@
 int print_binary(va_list list)
 {
 	  unsigned int num = va_arg(list, unsigned int);
+    int len = 0;
 
     if (num == 0) {
         putchar('0');
-        return 1;  // 1 character printed
+        return 1;
     }
 
     if (num < 1) {
-        return -1; // Invalid input
+        return -1;
     }
 
-    int len = 0;
-    char binaryStr[32]; // Assuming a 32-bit integer, adjust if needed
+    char binaryStr[32];
 
     while (num > 0) {
         binaryStr[len++] = (num % 2) ? '1' : '0';
@@ -29,7 +29,7 @@ int print_binary(va_list list)
 
     binaryStr[len] = '\0';
 
-    reverseString(binaryStr);
+    rev_string(binaryStr);
 
     printf("%s", binaryStr);
 

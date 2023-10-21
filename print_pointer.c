@@ -8,9 +8,9 @@
 
 int print_pointer(va_list val)
 {
+     void *p = va_arg(val, void*);
      unsigned long int a = (unsigned long int)p;
      int b = print_hex_aux(a);
-	 void *p = va_arg(val, void*);
 
     if (p == NULL)
     {

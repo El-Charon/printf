@@ -8,23 +8,17 @@
 
 int print_rev(va_list l)
 {
-	 va_list args;
-    va_start(args, format);
+	int i = 0, j;
+	char *s = va_arg(l, char *);
 
-    int i = 0;
-    int j;
-    char *s = va_arg(args, char *);
+	if (!s)
+		s = "(null)";
 
-    if (!s)
-        s = "(null)";
+	while (s[i])
+		i++;
 
-    while (s[i])
-        i++;
+	for (j = i - 1; j >= 0; j--)
+		_putchar(s[j]);
 
-    for (j = i - 1; j >= 0; j--)
-        my_putchar(s[j]);
-
-    va_end(args);
-    
-    return i;
+	return (i);
 }
