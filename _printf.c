@@ -1,40 +1,45 @@
 #include "main.h"
-
 /**
- * _printf - Receives the main string and all the necessary parameters to
- * print a formated string
- * @format: A string containing all the desired characters
- * Return: A total count of the characters printed
+ * _printf - is a function that selects the correct function to print.
+ * @format: identifier to look for.
+ * Return: the length of the string.
  */
-
-int _printf(const char *format, ...)
+int _printf(const char * const format, ...)
 {
-	int printed_chars;
-	conver_t f_list[] = {
-		{"%", print_percent},
-		{"d", print_integer},
-		{"i", print_integer},
-		{"c", print_char},
-		{"s", print_string},
-		{"b", print_binary},
-		{"u", print_unsigned_integer},
-		{"o", print_octal},
-		{"x", print_hex},
-		{"X", print_HEX},
-		{"S", print_String},
-		{"p", print_pointer},
-		{"r", print_rev},
-		{"R", print_rot13},
-		{NULL, NULL},
+	convert_match m[] = {
+		{"%s", printf_string}, {"%c", printf_char},
+		{"%%", printf_37},
+		{"%i", printf_int}, {"%d", printf_dec}, {"%r", printf_srev},
+		{"%R", printf_rot13}, {"%b", printf_bin}, {"%u", printf_unsigned},
+		{"%o", printf_oct}, {"%x", printf_hex}, {"%X", printf_HEX},
+		{"%S", printf_exclusive_string}, {"%p", printf_pointer}
 	};
-	va_list arg_list;
 
-	if (format == NULL)
+	va_list args;
+	int i = 0, j, len = 0;
+
+	va_start(args, format);
+	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
 		return (-1);
 
-	va_start(arg_list, format);
-	printed_chars = format_reciever(format, f_list, arg_list);
-	va_end(arg_list);
-	return (printed_chars);
+Here:
+	while (format[i] != '\0')
+	{
+		j = 13;
+		while (j >= 0)
+		{
+			if (m[j].id[0] == format[i] && m[j].id[1] == format[i + 1])
+			{
+				len += m[j].f(args);
+				i = i + 2;
+				goto Here;
+			}
+			j--;
+		}
+		_putchar(format[i]);
+		len++;
+		i++;
+	}
+	va_end(args);
+	return (len);
 }
-
