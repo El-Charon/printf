@@ -10,16 +10,14 @@ int _printf(const char *format, ...) {
             putchar(*format);
             count++;
         } else {
-            format++; // Move past '%'
+            format++;
             if (*format == '\0') {
-                break; // If '%' is the last character, exit the loop
+                break;
             } else if (*format == 'c') {
-                // Character specifier
                 char c = va_arg(args, int);
                 putchar(c);
                 count++;
             } else if (*format == 's') {
-                // String specifier
                 char *str = va_arg(args, char *);
                 while (*str) {
                     putchar(*str);
@@ -27,12 +25,11 @@ int _printf(const char *format, ...) {
                     count++;
                 }
             } else if (*format == '%') {
-                // Print a literal '%'
                 putchar('%');
                 count++;
             }
         }
-        format++; // Move to the next character in the format string
+        format++;
     }
 
     va_end(args);
