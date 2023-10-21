@@ -14,16 +14,10 @@ int _printf(const char *format, ...) {
             if (*format == '\0') {
                 break;
             } else if (*format == 'c') {
-                char c = va_arg(args, int);
-                _putchar(c);
+                _putchar(va_arg(args, int));
                 count++;
             } else if (*format == 's') {
-                char *str = va_arg(args, char *);
-                while (*str) {
-                    _putchar(*str);
-                    str++;
-                    count++;
-                }
+                count = printf_string(args, count);
             } else if (*format == '%') {
                 _putchar('%');
                 count++;
@@ -31,7 +25,7 @@ int _printf(const char *format, ...) {
         }
         format++;
     }
-
+    
     va_end(args);
     return count;
 }

@@ -9,5 +9,6 @@
 
 int _printf(const char *format, ...);
 int _putchar(char character);
+int printf_string(va_list args, int count);
 
 #endif
