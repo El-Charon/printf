@@ -12,6 +12,7 @@ int print_hex_aux(unsigned long int num)
     unsigned long int temp = num;
     char *hexDigits = "0123456789ABCDEF";
     char *hexArray = (char *)malloc(counter * sizeof(char));
+    int i;
 
    if (num == 0) {
         putchar('0');
@@ -30,7 +31,6 @@ int print_hex_aux(unsigned long int num)
 
     temp = num;
 
-    int i;
     for (i = counter - 1; i >= 0; i--) {
         int digit = temp % 16;
         hexArray[i] = hexDigits[digit];

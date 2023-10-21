@@ -10,6 +10,7 @@ int print_binary(va_list list)
 {
 	  unsigned int num = va_arg(list, unsigned int);
     int len = 0;
+    char binaryStr[32];
 
     if (num == 0) {
         putchar('0');
@@ -19,8 +20,6 @@ int print_binary(va_list list)
     if (num < 1) {
         return -1;
     }
-
-    char binaryStr[32];
 
     while (num > 0) {
         binaryStr[len++] = (num % 2) ? '1' : '0';
