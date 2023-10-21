@@ -5,7 +5,9 @@
 #include <stdarg.h>
 #include <unistd.h>
 #include <stdlib.h>
+#include <limits.h>
 
 int _printf(const char *format, ...);
+int _putchar(char character);
 
 #endif
