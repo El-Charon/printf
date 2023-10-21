@@ -8,6 +8,8 @@
 
 int print_pointer(va_list val)
 {
+     unsigned long int a = (unsigned long int)p;
+     int b = print_hex_aux(a);
 	 void *p = va_arg(val, void*);
 
     if (p == NULL)
@@ -21,11 +23,9 @@ int print_pointer(va_list val)
         return i;
     }
 
-    unsigned long int a = (unsigned long int)p;
     _putchar('0');
     _putchar('x');
 
-    int b = print_hex_aux(a);
     return b + 2;
 }
 

@@ -25,6 +25,7 @@ int print_number(va_list args)
 {
     int n = va_arg(args, int);
     int len = 0;
+    int divisor = 1;
     unsigned int num;
 
     if (n < 0) {
@@ -39,7 +40,6 @@ int print_number(va_list args)
         return len;
     }
 
-    int divisor = 1;
     while (num / divisor >= 10) {
         divisor *= 10;
     }

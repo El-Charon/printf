@@ -13,7 +13,8 @@ int print_hex(va_list list)
     int rem_num;
     char *hex_rep;
     char *rev_hex;
-
+    int i;
+    
     num = va_arg(list, unsigned int);
 
     if (num == 0)
@@ -27,7 +28,7 @@ int print_hex(va_list list)
     if (hex_rep == NULL)
         return -1;
 
-    for (int i = 0; num > 0; i++) {
+    for (i = 0; num > 0; i++) {
         rem_num = num % 16;
         if (rem_num > 9) {
             rem_num = hex_check(rem_num, 'x');

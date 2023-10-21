@@ -9,42 +9,39 @@
 int print_hex_aux(unsigned long int num)
 {
    if (num == 0) {
-        putchar('0'); // Special case: print '0' for input 0
+        putchar('0');
         return 1;
     }
 
     int counter = 0;
     unsigned long int temp = num;
 
-    // Calculate the number of hexadecimal digits required
     while (temp > 0) {
         temp /= 16;
         counter++;
     }
 
-    char *hexDigits = "0123456789ABCDEF"; // Array to map integers to hexadecimal characters
+    char *hexDigits = "0123456789ABCDEF";
 
-    // Create an array to store the hexadecimal digits
     char *hexArray = (char *)malloc(counter * sizeof(char));
     if (hexArray == NULL) {
-        return -1; // Memory allocation failed
+        return -1;
     }
 
-    temp = num; // Reset temp to the original number
+    temp = num;
 
-    // Calculate and store the hexadecimal digits in reverse order
-    for (int i = counter - 1; i >= 0; i--) {
+    int i;
+    for (i = counter - 1; i >= 0; i--) {
         int digit = temp % 16;
         hexArray[i] = hexDigits[digit];
         temp /= 16;
     }
 
-    // Print the hexadecimal digits
-    for (int i = 0; i < counter; i++) {
+    for (i = 0; i < counter; i++) {
         putchar(hexArray[i]);
     }
 
-    free(hexArray); // Free the allocated memory
+    free(hexArray);
 
-    return counter; // Return the number of hexadecimal digits
+    return counter;
 }

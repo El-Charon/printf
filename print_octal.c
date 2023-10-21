@@ -12,6 +12,7 @@ int print_octal(va_list list)
     int len;
     char *octal_rep;
     char *rev_str;
+    int i;
 
     num = va_arg(list, unsigned int);
 
@@ -31,7 +32,7 @@ int print_octal(va_list list)
         return -1;
     }
 
-    for (int i = 0; num > 0; i++) {
+    for (i = 0; num > 0; i++) { {
         octal_rep[i] = (num % 8) + '0';
         num = num / 8;
     }

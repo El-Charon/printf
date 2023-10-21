@@ -44,7 +44,7 @@ int print_rot13(va_list list);
 
 int print_number(va_list args);
 unsigned int base_len(unsigned int, int);
-char *reverseString(char *);
+char *rev_string(char *);
 void write_base(char *str);
 char *_memcpy(char *dest, char *src, unsigned int n);
 int print_unsgined_number(unsigned int n);
